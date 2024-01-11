@@ -1,0 +1,1 @@
+This project is made using Spring Boot that makes use of Spring Security and JDBC to make an web application where employees can discuss on different topics and Manager can crate different topics also delete inapropriate threads
