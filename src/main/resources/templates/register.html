@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Team Work Discussion Forum</title>
+    <link rel="stylesheet" href="css/register-style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Team Work Discussion Forum</h1>
+        <p>Join the community and collaborate with your team!</p>
+    </header>
+
+    <main>
+        <section class="register-container">
+            <h2>Register</h2>
+            <form id="register-form" method="post" th:action="@{/register}">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="role">Role:</label>
+                <select id="role" name="authority">
+                    <option value="worker">Worker</option>
+                    <option value="manager">Manager</option>
+                    <option value="admin">ADMIN</option>
+                </select>
+
+                <button type="submit">Register</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="/">Index Page</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Team Work Discussion Forum</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Work Discussion Forum - Home</title>
+    <link rel="stylesheet" href="css/home-style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+        </ul>
+         <ul>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+        <ul>
+            <li><a href="/addTopic">Add Topic</a></li>
+        </ul>
+        <ul>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="discussion-container">
+			
+            <article class="discussion" th:each="t : ${topicList}">
+                <h2><a th:href="@{/thread/{id}(id=${t.id})}" th:text="${t.title}"></a></h2>
+                <p th:text="${t.description}"></p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Team Work Discussion Forum</p>
+    </footer>
+
+</body>
+</html>

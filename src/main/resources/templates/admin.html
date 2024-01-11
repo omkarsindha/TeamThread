@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Team Work Discussion Forum - Home</title>
+	<link rel="stylesheet" href="/css/admin-style.css">
+</head>
+
+<body>
+
+	<nav>
+		<ul>
+			<li><a href="/home">Home</a></li>
+		</ul>
+		<ul>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+		<ul>
+			<li><a href="/addTopic">Add Topic</a></li>
+		</ul>
+		<ul>
+			<li><a href="/admin">Admin</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<h2>Topics</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>TOPIC NAME</th>
+					<th>DESCRIPTION</th>
+					<th>DELETE</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="t: ${topics}">
+					<td th:text="${t.id}"></td>
+					<td th:text="${t.title}"></td>
+					<td th:text="${t.description}"></td>
+					<td><a th:href="@{/rmtopic/{id}(id=${t.id})}">DELETE</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>Comments</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>TOPIC ID</th>
+					<th>USER</th>
+					<th>ROLE</th>
+					<th>DATE</th>
+					<th>COMMENT</td>
+					<th>DELETE</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="th: ${threads}">
+					<td th:text="${th.id}"></td>
+					<td th:text="${th.topicid}"></th>
+					<td th:text="${th.username}"></td>
+					<td th:text="${th.role}"></th>
+					<td th:text="${th.cmttime}"></th>
+					<td th:text="${th.comment}"></th>
+					<td><a th:href="@{/rmthread/{id}(id=${th.id})}">DELETE</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</main>
+
+</body>
+
+</html>

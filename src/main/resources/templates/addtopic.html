@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login - Team Work Discussion Forum</title>
+	<link rel="stylesheet" href="css/login-style.css">
+</head>
+
+<body>
+
+	<main>
+		<section class="login-container">
+			<h2>Add a Topic</h2>
+			<form id="login-form" th:action="@{/addTopic}" method="post" th:object="${topic}">
+				<label for="username">Title</label>
+				<input type="text" name="title" th:feild="*{title}"required>
+
+				<label for="password">Summary:</label>
+				<input type="text" name="description" th:feild="*{description}"required>
+
+				<button type="submit">Add topic</button>
+			</form>
+		</section>
+	</main>
+
+</body>
+
+</html>

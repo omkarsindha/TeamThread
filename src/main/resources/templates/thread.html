@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Work Discussion Forum - Discussion Title</title>
+    <link rel="stylesheet" th:href="@{/css/thread-style.css}">
+</head>
+
+<body>
+	
+      <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+        </ul>
+         <ul>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+        <ul>
+            <li><a href="/addTopic">Add Topic</a></li>
+        </ul>
+        <ul>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article class="individual-discussion">
+            <h2>Discussion Title</h2>
+
+            <section class="comments">
+				
+                <div class="comment" th:each="thr: ${threads}">
+                    <div class="user-profile">
+                        <img src="/img/profile.jpg" alt="Profile Picture" class="profilepic">
+                        <div class="user-info">
+                            <strong th:text="${thr.username}"></strong> <i th:text="|(${thr.role})|"></i> <b class="light-text" th:text="${thr.cmttime}"></b>
+                        </div>
+                    </div>
+                    <p th:text="${thr.comment}"></p>
+                </div>
+                
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="comment-form-container">
+        <form id="comment-form" method="post" th:action="@{/postComment}" th:object="${comment}">
+            <div class="comment-input">
+				<input type="hidden" name="topicid" th:value="${id}"required>
+				<input type="hidden" name="username" th:value="${#authentication.name}"required>
+				<input type="hidden" name="role" th:value="${#authentication.getAuthorities()}"required>
+                <input type="text" id="comment-username" name="comment" required>
+                <button type="submit">Post Comment</button>
+            </div>
+        </form>
+    </footer>
+
+</body>
+
+</html>
